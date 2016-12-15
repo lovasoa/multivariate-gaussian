@@ -6,11 +6,11 @@ function vector(x) {
 
 /**
 * @param {Object<Array>} parameters An object that has the following properties:
-*                                * sigma : covariance matrix
-*                                * mu : mean vector
+*                                   * sigma : covariance matrix
+*                                   * mu : mean vector
 * @return {Function} The probability function 
 **/
-function density (parameters) {
+function multivariate_gaussian (parameters) {
     var sigma = matrix(parameters.sigma), mu = vector(parameters.mu);
     var sinv = matrix(sigma.inv());
     var coeff = 1 / Math.sqrt(
@@ -26,3 +26,5 @@ function density (parameters) {
                 );
     }
 }
+
+module.exports = multivariate_gaussian;
