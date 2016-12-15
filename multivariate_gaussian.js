@@ -5,10 +5,10 @@ function vector(x) {
 }
 
 /**
-* @param {Object<Array>} parameters - An object that has the following properties:
+* @param {Object<Array>} parameters An object that has the following properties:
 *                                * sigma : covariance matrix
 *                                * mu : mean vector
-* @return {Function} f - The probability function 
+* @return {Function} The probability function 
 **/
 function density (parameters) {
     var sigma = matrix(parameters.sigma), mu = vector(parameters.mu);
