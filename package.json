@@ -34,4 +34,5 @@
   "dependencies": {
     "matrix-js": "^1.2.0"
   }
+  "runkitExample": "var gaussian = require('multivariate-gaussian');\n"
 }
