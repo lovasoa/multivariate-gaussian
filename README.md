@@ -1,6 +1,8 @@
 # multivariate-gaussian
 
- Multivariate normal distribution density function implemented in javascript
+[![Build Status](https://travis-ci.org/lovasoa/multivariate-gaussian.svg?branch=master)](https://travis-ci.org/lovasoa/multivariate-gaussian)
+
+Multivariate normal distribution density function implemented in javascript
 
 ## How to use
 
