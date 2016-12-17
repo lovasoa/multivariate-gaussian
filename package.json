@@ -1,6 +1,6 @@
 {
   "name": "multivariate-gaussian",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Multivariate normal distribution density function",
   "main": "multivariate_gaussian.js",
   "scripts": {
@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/lovasoa/multivariate-gaussian#readme",
   "dependencies": {
-    "matrix-js": "^1.2.0"
+    "numeric": "^1.2.6"
   },
   "runkitExample": "var gaussian = require('multivariate-gaussian');\n"
 }

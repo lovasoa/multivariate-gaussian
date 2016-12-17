@@ -1,8 +1,6 @@
-var matrix = require("matrix-js");
+var n = require("numeric");
 
-function vector(x) {
-    return matrix(x.map(function (v){return [v]}));
-}
+var sqrt2PI = Math.sqrt(Math.PI * 2);
 
 /**
 * @param {Object<Array>} parameters An object that has the following properties:
@@ -11,20 +9,15 @@ function vector(x) {
 * @return {Function} The probability function 
 **/
 function multivariate_gaussian (parameters) {
-    var sigma = matrix(parameters.sigma), mu = vector(parameters.mu);
-    var sinv = matrix(sigma.inv());
-    var coeff = 1 / Math.sqrt(
-                Math.pow(2 * Math.PI, mu.size()[0]) *
-                sigma.det()
-               );
-    return function (raw_x) {
-        var x = vector(raw_x);
-        var delta = matrix(x.sub(mu));
-        var delta_trans = matrix(delta.trans());
-        return coeff * Math.exp(
-                 matrix(delta_trans.prod(sinv)).prod(delta)[0][0] / (-2)
-                );
-    }
+    var sigma = parameters.sigma, mu = parameters.mu;
+    var sinv = n.inv(sigma); // π ^ (-1)
+    var k = mu.length; // dimension
+    var coeff = 1 / (Math.pow(sqrt2PI,k) * Math.sqrt(n.det(sigma))); 
+    return function (x) {
+        var delta = n.sub(x, mu); // 𝛿 = x - mu
+        var prod = n.dot(delta, n.dot(sinv, delta)); // Π = 𝛿T . Σ^(-1) . 𝛿
+        return coeff * Math.exp(prod / -2); // e^(-Π/2) / √|2.π.Σ|
+    };
 }
 
 module.exports = multivariate_gaussian;
