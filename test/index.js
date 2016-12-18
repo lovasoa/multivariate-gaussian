@@ -1,4 +1,5 @@
-var gaussian = require('../');
+var Gaussian = require('../');
+var assert = require('assert');
 
 var distribution_parameters = {
   // n*n covariance matrix
@@ -7,9 +8,8 @@ var distribution_parameters = {
   mu : [0, 0]
 }
 
-var density_function = gaussian(distribution_parameters);
+var my_gaussian = new Gaussian(distribution_parameters);
 
-var res = density_function([0, 0]); // Returns the value of the density function at (0,0)
+var res = my_gaussian.density([0, 0]); // Returns the value of the density function at (0,0)
 
-var assert = require('assert');
 assert.ok(res > 0 && res < 1);

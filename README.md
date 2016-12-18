@@ -7,7 +7,7 @@ Multivariate normal distribution density function implemented in javascript
 ## How to use
 
 ```js
-var gaussian = require('multivariate-gaussian');
+var Gaussian = require('multivariate-gaussian');
 
 var distribution_parameters = {
   // n*n covariance matrix
@@ -16,7 +16,7 @@ var distribution_parameters = {
   mu : [0, 0]
 }
 
-var density_function = gaussian(distribution_parameters);
+var my_gaussian = new Gaussian(distribution_parameters);
 
-density_function([0, 0]); // Returns the value of the density function at (0,0)
+my_gaussian.density([0, 0]); // Returns the value of the density function at (0,0)
 ```
