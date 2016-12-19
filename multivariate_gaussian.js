@@ -10,8 +10,14 @@ function Gaussian(parameters) {
     this.sigma = parameters.sigma;
     this.mu = parameters.mu;
     this.k = this.mu.length; // dimension
-    this._sinv = n.inv(this.sigma); // π ^ (-1)
-    this._coeff = 1 / (Math.pow(sqrt2PI, this.k) * Math.sqrt(n.det(this.sigma))); 
+    var det = n.det(this.sigma);
+    if (det > 0) {
+        this._sinv = n.inv(this.sigma); // π ^ (-1)
+        this._coeff = 1 / (Math.pow(sqrt2PI, this.k) * Math.sqrt(det));
+    } else {
+        this._sinv = n.rep([this.k, this.k], 0);
+        this._coeff = 0;
+    }
 }
 
 /**
