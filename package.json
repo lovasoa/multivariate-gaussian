@@ -1,6 +1,6 @@
 {
   "name": "multivariate-gaussian",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Multivariate normal distribution density function",
   "main": "multivariate_gaussian.js",
   "scripts": {
