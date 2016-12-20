@@ -34,5 +34,21 @@
   "dependencies": {
     "numeric": "^1.2.6"
   },
-  "runkitExample": "var gaussian = require('multivariate-gaussian');\n"
+  "runkitExample": "var gaussian = require('multivariate-gaussian');\n",
+  "devDependencies": {
+    "tape": "^4.6.3"
+  },
+  "testling": {
+    "files": "test/*js",
+    "browsers": [
+        "chrome/latest",
+        "firefox/latest",
+        "ie/6..latest",
+        "safari/5..latest",
+        "android-browser/4..latest",
+        "iphone/6..latest",
+        "opera/11",
+        "opera/next"
+    ]
+  }
 }
